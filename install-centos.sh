@@ -7,10 +7,10 @@ is64bit=`getconf LONG_BIT`
 if [ -f "/usr/bin/apt-get" ];then
 	isDebian=`cat /etc/issue|grep Debian`
 	if [ "$isDebian" != "" ];then
-		wget --no-check-certificate -O install.sh https://github.com/liaochaopeng/bt-panel-5.9.1-beta/blob/main/install-ubuntu.sh && bash install.sh
+		wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/liaochaopeng/priv-bt591/main/install-centos.sh && bash install.sh
 		exit;
 	else
-		wget --no-check-certificate -O install.sh https://github.com/liaochaopeng/bt-panel-5.9.1-beta/blob/main/install-ubuntu.sh && sudo bash install.sh
+		wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/liaochaopeng/priv-bt591/main/install-ubuntu.sh && sudo bash install.sh
 		exit;
 	fi
 fi
@@ -109,7 +109,7 @@ echo '---------------------------------------------';
 echo "Selected download node...";
 get_node_url
 download_Url=$NODE_URL
-btpanel_Url=https://github.com/liaochaopeng/bt-panel-5.9.1-beta/blob/main/panel.zip
+btpanel_Url=https://raw.githubusercontent.com/liaochaopeng/priv-bt591/main/panel.zip
 echo "Download node: $download_Url";
 echo '---------------------------------------------';
 setup_path=/www
