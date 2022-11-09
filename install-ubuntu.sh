@@ -189,7 +189,7 @@ apt-get install lsb-release -y
 #apt-get upgrade -y
 for pace in wget curl python python-dev python-imaging zip unzip openssl libssl-dev gcc libxml2 libxml2-dev libxslt zlib1g zlib1g-dev libjpeg-dev libpng-dev lsof libpcre3 libpcre3-dev cron;
 do apt-get -y install $pace --force-yes; done
-apt-get -y install python-pip python-dev
+apt-get -y install python-pip python-dev python-setuptools
 
 tmp=$(python -V 2>&1|awk '{print $2}')
 pVersion=${tmp:0:3}
