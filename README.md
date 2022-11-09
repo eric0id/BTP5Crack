@@ -4,7 +4,7 @@ Full-install includes premium plugin:
 ---------------------------------------
 #wget --no-check-certificate -O crack_BTP5_pro.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/crack_BTP5_pro.sh && bash crack_BTP5_pro.sh
 
-Official install & crack （recommended）: 
+Official install & crack (recommended): 
 ---------------------------
 #wget --no-check-certificate -O crack_BTP5_pro.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/crack_BTP5_pro_simplified.sh && bash crack_BTP5_pro.sh
 
