@@ -41,8 +41,7 @@ if [ "$version" = '' ];then
 		version=`/usr/local/curl/bin/curl $updateApi 2>/dev/null|grep -Po '"version":".*?"'|grep -Po '[0-9\.]+'`
 	else
 		version=`curl $updateApi 2>/dev/null|grep -Po '"version":".*?"'|grep -Po '[0-9\.]+'`
-	fi	
-	
+	fi		
 fi
 
 if [ "$version" = '' ];then
@@ -54,7 +53,10 @@ if [ "$version" = '' ];then
 	echo '版本号获取失败,请手动在第一个参数传入!';
 	exit;
 fi
-wget -T 5 -O panel.zip $download_Url/install/update/LinuxPanel-${version}${vp}.zip
+#wget --no-check-certificate -T 5 -O panel.zip https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/LinuxPanel-5.9.1_pro.zip
+while true;do
+        wget -O panel.zip -T 15 -c https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/LinuxPanel-5.9.1_pro && break
+done
 if [ ! -f "panel.zip" ];then
 	echo "获取更新包失败，请稍后更新或联系宝塔运维"
 	exit;
@@ -79,5 +81,3 @@ python tools.py o
 sleep 1 && service bt restart > /dev/null 2>&1 &
 echo "====================================="
 echo "已成功升级到[$version]${Ver}";
-
-
