@@ -7,10 +7,10 @@ is64bit=`getconf LONG_BIT`
 if [ -f "/usr/bin/apt-get" ];then
 	isDebian=`cat /etc/issue|grep Debian`
 	if [ "$isDebian" != "" ];then
-		wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/liaochaopeng/priv-bt591/main/install-centos.sh && bash install.sh
+		wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/install-ubuntu-onecommand.sh && bash install.sh
 		exit;
 	else
-		wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/liaochaopeng/priv-bt591/main/install-ubuntu.sh && sudo bash install.sh
+		wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/install-ubuntu-onecommand.sh && sudo bash install.sh
 		exit;
 	fi
 fi
