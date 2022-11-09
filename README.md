@@ -17,7 +17,7 @@ centos:
 
 ubuntu or debian: 
 -----------------
-#sudo apt-get install - y python-setuptools && wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/install-ubuntu-onecommand.sh && bash install.sh
+#sudo apt-get install -y python-setuptools && wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/install-ubuntu-onecommand.sh && bash install.sh
 
 
 
