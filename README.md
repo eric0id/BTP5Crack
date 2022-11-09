@@ -13,3 +13,11 @@ One command install to pro version：
 ##ubuntu or debian: 
 
 #wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/install-ubuntu-onecommand.sh && bash install.sh
+
+
+
+
+-------------------------
+##uninstall:
+
+#wget --no-check-certificate -qO uninstall.sh  https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/uninstall.sh && bash uninstall.sh
