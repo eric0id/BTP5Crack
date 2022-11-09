@@ -17,10 +17,10 @@ ubuntu or debian:
 
 
 
--------------------------
-##uninstall:
+
+
+uninstall:
 ===================
 #wget --no-check-certificate -qO uninstall.sh  https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/uninstall.sh && bash uninstall.sh
 
-:party_popper: #wget --no-check-certificate -qO uninstall.sh  https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/uninstall.sh && bash uninstall.sh
  
