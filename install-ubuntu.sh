@@ -101,6 +101,14 @@ if [ -f $setup_path/server/panel/data/port.pl ];then
 	port=`cat $setup_path/server/panel/data/port.pl`
 fi
 
+while [ "$go" != 'y' ] && [ "$go" != 'n' ]
+do
+	read -p "Do you want to install Bt-Panel to the $setup_path directory now?(y/n): " go;
+done
+
+if [ "$go" = 'n' ];then
+	exit;
+fi
 startTime=`date +%s`
 
 #数据盘自动分区
@@ -176,18 +184,19 @@ ln -sf bash /bin/sh
 apt-get install ruby -y
 apt-get update -y
 apt-get install lsb-release -y
-#apt-get install ntp ntpdate -y
-#/etc/init.d/ntp stop
-#update-rc.d ntp remove
-#cat >>~/.profile<<EOF
-#TZ='Asia/Shanghai'; export TZ
-#EOF
-#rm -rf /etc/localtime
-#cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-#echo 'Synchronizing system time...'
-#ntpdate 0.asia.pool.ntp.org
-#apt-get upgrade -y
-for pace in wget curl python python-dev python-imaging python-setuptools zip unzip openssl libssl-dev gcc libxml2 libxml2-dev libxslt zlib1g zlib1g-dev libjpeg-dev libpng-dev lsof libpcre3 libpcre3-dev cron;
+apt-get python-setuptools -y
+apt-get install ntp ntpdate -y
+/etc/init.d/ntp stop
+update-rc.d ntp remove
+cat >>~/.profile<<EOF
+TZ='Asia/Shanghai'; export TZ
+EOF
+rm -rf /etc/localtime
+cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+echo 'Synchronizing system time...'
+ntpdate 0.asia.pool.ntp.org
+apt-get upgrade -y
+for pace in wget curl python python-dev python-imaging zip unzip openssl libssl-dev gcc libxml2 libxml2-dev libxslt zlib1g zlib1g-dev libjpeg-dev libpng-dev lsof libpcre3 libpcre3-dev cron;
 do apt-get -y install $pace --force-yes; done
 apt-get -y install python-pip python-dev
 
@@ -421,8 +430,8 @@ if [ -f "/usr/sbin/ufw" ];then
 	ufw default deny
 	ufw reload
 fi
-
-pip install psutil chardet web.py psutil virtualenv $pipArg
+pip install web.py==0.39
+pip install psutil chardet psutil virtualenv $pipArg
 if [ ! -d '/etc/letsencrypt' ];then
 
 	mkdir -p /var/spool/cron
