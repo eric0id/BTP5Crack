@@ -40,7 +40,7 @@ if [ "$go" = 'n' ];then
 fi
 
 # Check system information
-if [ -f /etc/redhat-release ];then
+if [ -f /etc/redhat-release ] && [[ `grep -i 'centos' /etc/redhat-release` ]]; then
     OS='CentOS'
 elif [ ! -z "`cat /etc/issue | grep bian`" ];then
     OS='Debian'
@@ -90,13 +90,21 @@ install_python_for_CentOS7() {
 }
 
 install_btPanel_for_CentOS() {
-    yum install -y wget && wget -O install.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/install.sh && sh install.sh
+    yum install -y wget && wget -O install.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/install.sh && bash install.sh
     wget -O update.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/update_pro.sh && bash update.sh pro
 }
 
 install_btPanel_for_APT() {
-    wget -O install.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/install-ubuntu.sh && sudo bash install.sh
-    wget -O update.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/update_pro.sh && bash update.sh pro
+    #wget -O install.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/install-ubuntu.sh && bash install.sh
+    while true;do
+        wget -O install.sh -T 15 -c https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/install-ubuntu.sh && break
+    done
+    bash install.sh
+    #wget -O update.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/update_pro.sh && bash update.sh pro
+    while true;do
+        wget -O update.sh -T 15 -c https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/update_pro.sh && break
+    done
+    bash update.sh pro
 }
 
 # Crack
@@ -114,8 +122,17 @@ execute_bt_panel() {
     if ! grep '/etc/init.d/bt restart' /etc/crontab; then
         systemctl enable cron.service
         systemctl start cron.service
-        echo "0  0    * * *   root    /etc/init.d/bt restart" >> /etc/crontab
+        echo "0  0    * * 0   root    /etc/init.d/bt restart" >> /etc/crontab
         /etc/init.d/cron restart
+    fi
+}
+
+# Enable SSL
+enable_ssl(){
+    if [ ! -f /www/server/panel/data/ssl.pl ]; then
+        echo "Ture" > /www/server/panel/data/ssl.pl
+        /usr/bin/python /usr/local/bin/pip install pyOpenSSL==16.2
+        /etc/init.d/bt restart
     fi
 }
 
@@ -123,6 +140,53 @@ execute_bt_panel() {
 clean_up() {
     rm -rf crack_bt_panel_pro.sh
     rm -rf update.sh
+    if [[ ${OS} == 'Ubuntu' ]] || [[ ${OS} == 'Debian' ]]; then
+        apt-get autoremove -y
+    fi
+    rm -rf /www/server/panel/plugin/btyw /root/install_cjson.sh /root/.pip /root/.pydistutils.cfg
+}
+
+# Pre-installation
+components(){
+    cd /root
+    #wget -O lib.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/lib.sh
+    while true;do
+        wget -O lib.sh -T 15 -c https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/lib.sh && break
+    done
+    mv lib.sh /www/server/panel/install
+    #wget -O nginx.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/nginx.sh
+    while true;do
+        wget -O nginx.sh -T 15 -c https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/nginx.sh && break
+    done
+    mv nginx.sh /www/server/panel/install
+	#wget -O php.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/php.sh
+    while true;do
+        wget -O php.sh -T 15 -c https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/php.sh && break
+    done
+    mv php.sh /www/server/panel/install
+    if [ -f /www/server/panel/install/install_soft.sh ]; then
+        rm -rf install_soft.sh
+        #wget -O install_soft.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/soft.sh
+        while true;do
+            wget -O install_soft.sh -T 15 -c https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/soft.sh && break
+        done
+        mv install_soft.sh /www/server/panel/install
+    fi
+}
+
+# Plugin config
+vip_plugin(){
+    # All premium plugins paid are installed by default
+    cd /www/server/panel/plugin
+    if [ ! -d "/masterslave" ]; then
+        #wget -O premium_plugin.zip https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/premium_plugin.zip
+		while true;do
+            wget -O premium_plugin.zip -T 15 -c https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/premium_plugin.zip && break
+        done
+		unzip premium_plugin.zip
+        rm -f premium_plugin.zip
+    fi
+    cd /root
 }
 
 # Installation
@@ -133,6 +197,8 @@ if [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "7" ]]; then
     install_btPanel_for_CentOS
     install_python_for_CentOS7
     crack_bt_panel
+    #enable_ssl
+    #premium_plugin
 elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "6" ]]; then
     yum install epel-release wget curl nss fail2ban unzip lrzsz vim* -y
     yum update -y
@@ -140,12 +206,18 @@ elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "6" ]]; then
     install_btPanel_for_CentOS
     install_python_for_CentOS6
     crack_bt_panel
+    #enable_ssl
+    #premium_plugin
 elif [[ ${OS} == 'Ubuntu' ]] || [[ ${OS} == 'Debian' ]]; then
     apt-get update
-    apt-get install vim vim-gnome lrzsz fail2ban wget curl unrar unzip cron -y
+    apt-get install ca-certificates -y
+    apt-get install sudo apt-transport-https vim vim-gnome libnet-ifconfig-wrapper-perl socat vim vim-gnome vim-gtk libnet-ifconfig-wrapper-perl socat lrzsz fail2ban wget curl unrar-free unzip cron dnsutils net-tools git git-svn make cmake gdb tig -y
     install_btPanel_for_APT
     crack_bt_panel
-    execute_bt_panel
+    components
+    #enable_ssl
+    #premium_plugin
+    execute_bt_panel    
 fi
 
 clean_up
