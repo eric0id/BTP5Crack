@@ -5,6 +5,7 @@
 --------------------------
 
 One command install to pro version：
+
 ##centos: 
 #yum install -y wget && wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/install-centos-onecommand.sh && sh install.sh
 
