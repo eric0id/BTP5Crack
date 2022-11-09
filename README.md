@@ -1,6 +1,7 @@
 BTP5Crack-for priv-test：
 ==========================
 #wget --no-check-certificate -O crack_BTP5_pro.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/crack_BTP5_pro.sh && bash crack_BTP5_pro.sh
+
 #wget --no-check-certificate -O crack_BTP5_pro.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/crack_BTP5_pro_simplified.sh && bash crack_BTP5_pro.sh
 
 
