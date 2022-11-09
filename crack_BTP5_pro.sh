@@ -175,7 +175,7 @@ components(){
 }
 
 # Plugin config
-vip_plugin(){
+premium_plugin(){
     # All premium plugins paid are installed by default
     cd /www/server/panel/plugin
     if [ ! -d "/masterslave" ]; then
