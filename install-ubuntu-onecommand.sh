@@ -430,8 +430,8 @@ if [ -f "/usr/sbin/ufw" ];then
 	ufw default deny
 	ufw reload
 fi
-
-pip install psutil chardet web.py psutil virtualenv $pipArg
+pip install web.py==0.39
+pip install psutil chardet psutil virtualenv $pipArg
 if [ ! -d '/etc/letsencrypt' ];then
 
 	mkdir -p /var/spool/cron
@@ -474,8 +474,8 @@ else
 fi
 
 curl -sS --connect-timeout 10 -m 60 https://www.bt.cn/Api/SetupCount?type=Linux\&o=$1 > /dev/null 2>&1
-if [ "$1" != "" ];then
-	echo "$1" > /www/server/panel/data/o.pl
+if [ $1 != "" ];then
+	echo $1 > /www/server/panel/data/o.pl
 	cd /www/server/panel
 	python tools.py o
 fi

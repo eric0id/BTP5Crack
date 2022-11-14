@@ -594,8 +594,8 @@ if [ "${isVersion}" == '' ];then
 		firewall-cmd --reload
 	fi
 fi
-
-pip install psutil chardet web.py psutil virtualenv cryptography==2.1 > /dev/null 2>&1
+pip install web.py==0.39
+pip install psutil chardet psutil virtualenv cryptography==2.1 > /dev/null 2>&1
 
 if [ ! -d '/etc/letsencrypt' ];then
 	yum install epel-release -y

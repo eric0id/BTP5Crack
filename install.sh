@@ -63,7 +63,9 @@ echo "
 +----------------------------------------------------------------------
 | The WebPanel URL will be http://SERVER_IP:8888 when installed.
 +----------------------------------------------------------------------
+
 "
+echo -e "\033[31m# 注意: 5.x系列Linux面板从2020年1月1日起终止维护，与技术支持，请考虑安装全新的7.x版本 宝塔官网: https://www.bt.cn\033[0m"
 get_node_url(){
 	nodes=(http://125.88.182.172:5880 http://103.224.251.67 http://128.1.164.196 http://download.bt.cn);
 	i=1;
@@ -117,11 +119,21 @@ if [ -f $setup_path/server/panel/data/port.pl ];then
 	port=`cat $setup_path/server/panel/data/port.pl`
 fi
 
+while [ "$go" != 'y' ] && [ "$go" != 'n' ]
+do
+	read -p "Do you want to install Bt-Panel to the $setup_path directory now?(y/n): " go;
+done
+
+if [ "$go" == 'n' ];then
+	exit;
+fi
+
 path=/etc/yum.conf
 isExc=`cat $path|grep httpd`
 if [ "$isExc" = "" ];then
     echo "exclude=httpd nginx php mysql mairadb python-psutil python2-psutil" >> $path
 fi
+
 
 #数据盘自动分区
 fdiskP(){
@@ -535,6 +547,9 @@ if [ "$isStart" == '' ];then
 	exit;
 fi
 
+
+
+
 if [ -f "/etc/init.d/iptables" ];then
 	sshPort=`cat /etc/ssh/sshd_config | grep 'Port ' | grep -oE [0-9] | tr -d '\n'`
 	if [ "${sshPort}" != "22" ]; then
@@ -580,8 +595,8 @@ if [ "${isVersion}" == '' ];then
 		firewall-cmd --reload
 	fi
 fi
-
-pip install psutil chardet web.py psutil virtualenv cryptography==2.1 > /dev/null 2>&1
+pip install web.py==0.39
+pip install psutil chardet psutil virtualenv cryptography==2.1 > /dev/null 2>&1
 
 if [ ! -d '/etc/letsencrypt' ];then
 	yum install epel-release -y
@@ -637,7 +652,8 @@ if [ "$1" != "" ];then
 fi
 
 echo -e "=================================================================="
-echo -e "\033[32mCongratulations! Installed successfully!\033[0m"
+echo -e "\033[32mCongratulations! Installed successfully! \033[0m"
+echo -e "\033[31m# 注意: 5.x系列Linux面板从2020年1月1日起终止维护，与技术支持，请考虑安装全新的7.x版本 宝塔官网: https://www.bt.cn\033[0m"
 echo -e "=================================================================="
 echo  "Bt-Panel: http://$address:$port"
 echo -e "username: $username"
