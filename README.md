@@ -1,6 +1,6 @@
 BTP5Crack-for priv-test：
 ==========================
-Full-install includes premium plugin: 
+Official install & crack (recommended):  
 ---------------------------------------
 #yum install -y wget ##centos
 
@@ -8,13 +8,6 @@ Full-install includes premium plugin:
 
 #wget --no-check-certificate -O crack_BTP5_pro.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/crack_BTP5_pro.sh && bash crack_BTP5_pro.sh
 
-Official install & crack (recommended): 
----------------------------
-#yum install -y wget ##centos
-
-#apt-get install -y python-setuptools ##ubuntu & debian
-
-#wget --no-check-certificate -O crack_BTP5_pro.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/crack_BTP5_pro_simplified.sh && bash crack_BTP5_pro.sh
 
 
 One command install to pro version：
