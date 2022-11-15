@@ -5,11 +5,12 @@ Official install & crack (recommended):
 ```yaml
 yum install -y wget ##centos
 ```
-
-#apt-get install -y python-setuptools ##ubuntu & debian
-
-#wget --no-check-certificate -O crack_BTP5_pro.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/crack_BTP5_pro.sh && bash crack_BTP5_pro.sh
-
+```yaml
+apt-get install -y python-setuptools ##ubuntu & debian
+```
+```yaml
+wget --no-check-certificate -O crack_BTP5_pro.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/crack_BTP5_pro.sh && bash crack_BTP5_pro.sh
+```
 
 
 One command install to pro version：
