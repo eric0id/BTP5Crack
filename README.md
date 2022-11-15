@@ -22,7 +22,7 @@ yum install -y wget && wget --no-check-certificate -O install.sh https://raw.git
 ```
 ubuntu or debian: 
 ```yaml
-#apt-get install -y python-setuptools && wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/install-ubuntu-onecommand.sh && bash install.sh
+apt-get install -y python-setuptools && wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/install-ubuntu-onecommand.sh && bash install.sh
 ```
 
 
