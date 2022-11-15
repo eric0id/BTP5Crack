@@ -32,6 +32,10 @@ uninstall:
 Comments:
 ================
 panel.zip ---> panel.591.pro
+------
 panel.591.free ---> panel.591.official.free
+-----
 panel.592.free ---> panel.592.official.free
-LinuxPanel-5.9.1_pro ---> for official.free upgrade to pro version
+-----
+LinuxPanel-5.9.1_pro ---> for official.free upgrading to pro version
+---------
