@@ -1,4 +1,4 @@
-BTP5Crack-for priv-test：
+BTP5Crack for priv-test：
 ==========================
 Official install & crack (recommended):  
 ---------------------------------------
