@@ -25,7 +25,7 @@ ubuntu or debian:
 
 
 
-uninstall:
+Uninstall:
 ===================
 #wget --no-check-certificate -qO uninstall.sh  https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/uninstall.sh && bash uninstall.sh
 
