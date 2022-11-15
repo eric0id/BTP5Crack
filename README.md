@@ -10,6 +10,8 @@ Official install & crack (recommended):
 ---------------------------
 #apt-get install -y python-setuptools ##ubuntu & debian
 
+#yum install -y wget ##centos
+
 #wget --no-check-certificate -O crack_BTP5_pro.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/crack_BTP5_pro_simplified.sh && bash crack_BTP5_pro.sh
 
 
