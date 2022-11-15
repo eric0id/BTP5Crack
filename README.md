@@ -2,7 +2,9 @@ BTP5Crack-for priv-test：
 ==========================
 Official install & crack (recommended):  
 ---------------------------------------
-#yum install -y wget ##centos
+```yaml
+yum install -y wget ##centos
+```
 
 #apt-get install -y python-setuptools ##ubuntu & debian
 
