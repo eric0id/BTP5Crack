@@ -42,3 +42,12 @@ panel.591.free ---> panel.591.official.free
 panel.592.free ---> panel.592.official.free
 LinuxPanel-5.9.1_pro ---> for official.free upgrading to pro version
 ```
+```yaml
+yum install -y wget && wget -O install.sh http://download.bt.cn/install/install.sh && sh install.sh ##centos offical 5.9.2 free
+```
+```yaml
+wget -O install.sh http://download.bt.cn/install/install-ubuntu.sh && sudo bash install.sh ##ubuntu offical 5.9.2 free
+```
+```yaml
+wget -O install.sh http://download.bt.cn/install/install-ubuntu.sh && bash install.sh ##debian offical 5.9.2 free
+```
