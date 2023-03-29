@@ -9,7 +9,7 @@ yum install -y wget ##centos
 apt-get install -y python-setuptools ##ubuntu & debian
 ```
 ```yaml
-wget --no-check-certificate -O crack_BTP5_pro.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/crack_BTP5_pro.sh && bash crack_BTP5_pro.sh
+wget --no-check-certificate -O crack_BTP5_pro.sh https://raw.githubusercontent.com/eric0id/BTP5Crack/main/crack_BTP5_pro.sh && bash crack_BTP5_pro.sh
 ```
 
 
@@ -18,11 +18,11 @@ One command install to pro version：
 centos:
 
 ```yaml
-yum install -y wget && wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/install-centos-onecommand.sh && sh install.sh
+yum install -y wget && wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/eric0id/BTP5Crack/main/install-centos-onecommand.sh && sh install.sh
 ```
 ubuntu or debian: 
 ```yaml
-apt-get install -y python-setuptools && wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/install-ubuntu-onecommand.sh && bash install.sh
+apt-get install -y python-setuptools && wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/eric0id/BTP5Crack/main/install-ubuntu-onecommand.sh && bash install.sh
 ```
 
 
@@ -32,7 +32,7 @@ apt-get install -y python-setuptools && wget --no-check-certificate -O install.s
 Uninstall:
 ===================
 ```yaml
-wget --no-check-certificate -qO uninstall.sh  https://raw.githubusercontent.com/liaochaopeng/BTP5Crack/main/uninstall.sh && bash uninstall.sh
+wget --no-check-certificate -qO uninstall.sh  https://raw.githubusercontent.com/eric0id/BTP5Crack/main/uninstall.sh && bash uninstall.sh
 ```
 Comments:
 ================
